@@ -12,8 +12,8 @@ CCPFLAGS =  -std=c++11 -g # -Wall # -DMAP # -O2 # -Og
 EDLFLAGS =
 
 #Fichier .h (interfaces) et .cpp (realisations)
-INT  =
-REAL =  main.cpp
+INT  = 			  Expr.h Symbole.h Automate.h Etats/Etat.h
+REAL =  main.cpp  Etats/Etat.cpp
 #Fichiers des classes de test
 INTTEST =
 REALTEST =
@@ -48,6 +48,7 @@ $(EXE) : $(OBJ)
 	$(EDL) $(EDLFLAGS) -o $(EXE) $(LIBPATH) $(OBJ) $(LIBS)
 
 #Dependances (cf #include)
+#Etat.o : Etats/Etat.h Symbole.h Automate.h
 
 %.o : %.cpp
 	$(AFFICHER) "Compilation de < $< >"
