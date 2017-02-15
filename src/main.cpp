@@ -7,7 +7,13 @@
 
 #include <iostream>
 
+#include "Automate.h"
+
 int main(){
     std::cout << "Hello world !" << std::endl;
+
+    Automate * tomate = new Automate;
+    delete(tomate);
+
     return 0;
 }

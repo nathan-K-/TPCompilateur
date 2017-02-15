@@ -1,6 +1,6 @@
-/*************************************************************************
+/*********************** **************************************************
                                     Etat
-                             -------------------
+                            -------------------
     début                : 17.02
     copyright            : (C) 2017 par HAMOUMA Naima et KIENLEN Nathan
 *************************************************************************/
@@ -9,8 +9,8 @@
 #define TPCOMPILATEUR_STATE_H
 
 #include <string>
-#include "../Symbole.h"
-#include "../Automate.h"
+#include "Symbole.h"
+
 
 class Etat {
 
@@ -18,8 +18,11 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void print() const;
 
-    virtual bool transition (Automate & automate, Symbole * s) = 0;
+    //virtual bool transition (Automate & automate, Symbole * s) = 0;
+    //TODO : pb, induit des dependances circulaires
 
+
+    enum types { EXPR, VARIABLE, NOMBRE, OUVREPAR }; //todo : ??
 //-------------------------------------------- Constructeurs - destructeur
     Etat(std::string name);
     /**
@@ -30,6 +33,9 @@ public:
     /**
      * Destructeur
      */
+
+protected:
+    std::string name;
 
 };
 

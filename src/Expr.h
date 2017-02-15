@@ -19,6 +19,7 @@ public:
 //----------------------------------------------------- Méthodes publiques
     virtual double eval(const std::map<std::string, double> &valeurs) = 0;
 
+
 //-------------------------------------------- Constructeurs - destructeur
 
     Expr() : Symbole((int) Expr) {} //TODO : changement depuis cours : le cast
