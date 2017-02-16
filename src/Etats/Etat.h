@@ -9,7 +9,7 @@
 #define TPCOMPILATEUR_STATE_H
 
 #include <string>
-#include "Symbole.h"
+#include "../Symbole.h"
 
 
 class Etat {
@@ -18,8 +18,7 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void print() const;
 
-    //virtual bool transition (Automate & automate, Symbole * s) = 0;
-    //TODO : pb, induit des dependances circulaires
+    virtual bool transition (Automate & automate, Symbole * s) = 0;
 
 
     enum types { EXPR, VARIABLE, NOMBRE, OUVREPAR }; //todo : ??

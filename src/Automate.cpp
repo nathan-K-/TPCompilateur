@@ -6,7 +6,6 @@
 *************************************************************************/
 
 #include "Symbole.h"
-#include "Etat.h"
 #include "Automate.h"
 
 

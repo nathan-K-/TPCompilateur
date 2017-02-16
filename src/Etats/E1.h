@@ -8,11 +8,12 @@
 #define TPCOMPILATEUR_E1_H
 
 #include "Etat.h"
+#include "../Automate.h"
 
 class E1 : public Etat {
 public:
 
-    //virtual bool transition (Automate & automate, Symbole * s) = 0;
+    virtual bool transition (Automate & automate, Symbole * s) = 0;
 
     //-------------------------------------------- Constructeurs - destructeur
     E1(std::string name);

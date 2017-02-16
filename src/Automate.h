@@ -8,11 +8,10 @@
 #ifndef TPCOMPILATEUR_AUTOMATE_H
 #define TPCOMPILATEUR_AUTOMATE_H
 
-
-//TODO : pb de dependance circulaire
-#include "Etat.h"
-
+#include "Symbole.h"
 #include <vector>
+
+class Etat;
 
 class Automate {
 
