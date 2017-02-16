@@ -8,7 +8,7 @@
 #define TPCOMPILATEUR_E1_H
 
 #include "Etat.h"
-#include "../Automate.h"
+#include "Automate.h"
 
 class E1 : public Etat {
 public:

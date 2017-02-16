@@ -12,14 +12,14 @@ CCPFLAGS =  -std=c++11 -g # -Wall # -DMAP # -O2 # -Og
 EDLFLAGS =
 
 #Fichier .h (interfaces) et .cpp (realisations)
-INT  = 			  Expr.h Symbole.h Automate.h    Etats/Etat.h
-REAL =  main.cpp                   Automate.cpp  Etats/Etat.cpp
+INT  = 			  Expr.h Symbole.h Automate.h    Etat.h
+REAL =  main.cpp                   Automate.cpp  Etat.cpp
 #Fichiers des classes de test
 INTTEST =
 REALTEST =
 
 #Fichiers objets (.o) qui seront generes
-OBJ = main.o Automate.o Etat.o
+OBJ = main.o  Automate.o  Etat.o
 
 #Nom des variables d effacement
 CLEAN = clean
@@ -49,8 +49,9 @@ $(EXE) : $(OBJ)
 
 #Dependances (cf #include)
 
-Automate.o : 	   Etats/Etat.h
-Etat.o : Symbole.h Etats/Etat.h
+
+Automate.o :  Etat.h
+Etat.o : Symbole.h Etat.h
 
 main.o : Automate.h
 
@@ -58,7 +59,7 @@ main.o : Automate.h
 	$(AFFICHER) "Compilation de < $< >"
 	$(COMP) $(CCPFLAGS) $(INCPATH) -c $<
 
-
+Etat.o :
 
 #Commandes bash du backup
 backup :
