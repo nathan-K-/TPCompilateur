@@ -5,10 +5,11 @@
     copyright            : (C) 2017 par HAMOUMA Naima et KIENLEN Nathan
 *************************************************************************/
 
-#include "Symbole.h"
-#include "Automate.h"
+#include "../Symbole.h"
+#include "../Automate.h"
 #include "E1.h"
 
+/*
 bool E1::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case NOMBRE:
@@ -23,3 +24,4 @@ bool E1::transition(Automate &automate, Symbole *s) {
     return false;
 }
 
+ */

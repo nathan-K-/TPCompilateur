@@ -9,7 +9,7 @@
 #define TPCOMPILATEUR_STATE_H
 
 #include <string>
-#include "Symbole.h"
+#include "../Symbole.h"
 
 
 class Etat {

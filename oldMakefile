@@ -8,7 +8,7 @@ RMFLAGS = -f # -f : --force, ne rien dire si les fichiers n existent pas
 AFFICHER = echo
 
 #Flags pour le compilateur
-CCPFLAGS =  -std=c++11 -g # -Wall # -DMAP # -O2 # -Og
+CCPFLAGS = -c  -std=c++11 -g # -Wall # -DMAP # -O2 # -Og
 EDLFLAGS =
 
 #Fichier .h (interfaces) et .cpp (realisations)
@@ -19,7 +19,7 @@ INTTEST =
 REALTEST =
 
 #Fichiers objets (.o) qui seront generes
-OBJ = main.o  Automate.o  Etat.o
+OBJ = main.o  Automate.o Etat.o
 
 #Nom des variables d effacement
 CLEAN = clean
@@ -29,8 +29,8 @@ CLEANALL = cleanall
 EXE = analyseur
 
 LIBS = # -lm
-LIBPATH = # -L chemin
-INCPATH = # -I chemin
+LIBPATH = -L obj/
+INCPATH = -I src/
 
 #Variables pour le backup
 TIME = `date +'%y.%m.%d_%H:%M'`
@@ -49,17 +49,22 @@ $(EXE) : $(OBJ)
 
 #Dependances (cf #include)
 
+Automate.o :  src/Etats/Etat.h
+Etat.o : src/Symbole.h src/Etats/Etat.h
 
-Automate.o :  Etat.h
-Etat.o : Symbole.h Etat.h
+main.o : src/Automate.h
 
-main.o : Automate.h
 
-%.o : %.cpp
+obj/%.o: src/%.cpp
 	$(AFFICHER) "Compilation de < $< >"
 	$(COMP) $(CCPFLAGS) $(INCPATH) -c $<
 
-Etat.o :
+
+
+
+
+
+
 
 #Commandes bash du backup
 backup :
