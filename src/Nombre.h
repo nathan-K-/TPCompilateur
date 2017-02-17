@@ -8,14 +8,18 @@
 #ifndef TPCOMPILATEUR_NOMBRE_H
 #define TPCOMPILATEUR_NOMBRE_H
 
-
 #include "Symbole.h"
+#include "Expr.h"
 
-class Nombre : public Symbole {
+class Nombre : public Expr {
 public:
 
+
+    virtual int eval() ;
+
     Nombre(int val);
-    int eval();
+
+    virtual ~Nombre() {}
 private:
    int val; 
    

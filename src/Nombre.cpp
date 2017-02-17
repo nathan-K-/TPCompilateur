@@ -7,14 +7,13 @@
 
 #include "Nombre.h"
 
-
-Nombre::Nombre(int val) : val(val) {
-    //empty
-    
+int Nombre::eval(){
+    return this->val;
 }
 
-int Nombre::eval(){
-        return val;
-    }
+
+Nombre::Nombre(int val) : val(val) {
+
+}
 
 

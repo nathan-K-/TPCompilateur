@@ -20,9 +20,27 @@ void Automate::reduction(int n, Symbole *s) {
         delete (statestack->back());
         statestack->pop_back();
     }
+
     //TODO verifier ça (back et pas front)
     statestack->back()->transition(*this, s);
 }
+
+
+void Automate::putSymbol(Symbole *s) {
+    this->symbolstack->push_back(s);
+}
+
+Symbole *Automate::popSymbol() {
+    return this->symbolstack->back();
+}
+
+void Automate::popAndDestroySymbol() {
+    delete (statestack->back());
+    statestack->pop_back();
+}
+
+
+
 
 Automate::Automate() {
     symbolstack = new std::vector<Symbole *>;
@@ -33,4 +51,3 @@ Automate::~Automate() {
     delete(symbolstack);
     delete(statestack);
 }
-
