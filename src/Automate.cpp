@@ -30,8 +30,10 @@ void Automate::putSymbol(Symbole *s) {
     this->symbolstack->push_back(s);
 }
 
-Symbole *Automate::popSymbol() {
-    return this->symbolstack->back();
+Symbole * Automate::popSymbol(){
+    Symbole * lastSymbol = this->symbolstack->back();
+    symbolstack->pop_back();
+    return lastSymbol;
 }
 
 void Automate::popAndDestroySymbol() {

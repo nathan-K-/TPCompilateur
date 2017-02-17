@@ -9,22 +9,24 @@
 #include "../Automate.h"
 #include "E3.h"
 #include "E5.h"
+#include "../Expr.h"
+#include "../Nombre.h"
 
 bool E3::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case PLUS:
+        case VALEUR:
+            break;
+        case OPEN:
+            break;
+        default:
+            //TODO : pas sur de ça
+            automate.putSymbol(s);
+            Nombre * n = (Nombre *) automate.popSymbol();
+            automate.popAndDestroySymbol();
 
-            automate.reduction(1 , s);
+            automate.reduction(1, n);
             break;
-        case MULT:
-            automate.reduction(1 , s);
-            break;
-        case CLOSE:
-            automate.reduction(1 , s);
-            break;
-        case END:
-            automate.reduction(1 , s);
-            break;
+
     }
     return false;
 }

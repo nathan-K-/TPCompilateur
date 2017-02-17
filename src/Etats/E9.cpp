@@ -8,21 +8,21 @@
 #include "../Symbole.h"
 #include "../Automate.h"
 #include "E9.h"
+#include "../Expr.h"
 
 
 bool E9::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case PLUS:
-            automate.reduction(3, s);
+        case VALEUR:
             break;
-        case MULT:
-            automate.reduction(3, s);
+        case OPEN:
             break;
-        case CLOSE:
-            automate.reduction(3, s);
-            break;
-        case END:
-            automate.reduction(3, s);
+        default:
+            automate.putSymbol(s);
+            Expr * e1 = (Expr *) automate.popSymbol();
+            automate.popAndDestroySymbol();
+            Expr * e2 = (Expr *) automate.popSymbol();
+            //automate.reduction(3 , new );
             break;
     }
     return false;
