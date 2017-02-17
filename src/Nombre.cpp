@@ -11,8 +11,9 @@ int Nombre::eval(){
     return this->val;
 }
 
-Nombre::Nombre(int id){
-    //empty
+
+Nombre::Nombre(int val) : val(val) {
+
 }
 
 

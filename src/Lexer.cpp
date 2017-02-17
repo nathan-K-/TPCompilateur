@@ -1,5 +1,6 @@
 
 #include "Lexer.h"
+#include "Nombre.h"
 
 Lexer::Lexer(std::string input, int position) 
 :input(input), position(position){
@@ -13,14 +14,19 @@ Lexer::~Lexer() {
 // Reads the next symbol without moving the pointer
 Symbole * Lexer::next(){
     char nextChar = input[position];
+    Symbole * token;
     switch (nextChar){
         case '+':
+            token = new Symbole(plus_);
             break;
         case '*':
+            token = new Symbole(mult_); 
             break;
         case '(':
+            token = new Symbole(open_);
             break;
         case ')':
+            token = new Symbole(close_);
             break;
         default:
             // If the next character is something else than a number
@@ -30,7 +36,7 @@ Symbole * Lexer::next(){
                             << " le caractère saisi n'es ni "
                                 "un nombre ni un opérateur!"
                                 << std::endl;
-                return new Symbole;
+                return nullptr;
             }
             // The character is a digit
             int i = position;
@@ -40,10 +46,13 @@ Symbole * Lexer::next(){
                 i++;
             }
             int number = stoi(numberS);
+            
+            token = new Nombre(number);
+            
             std::cout << "I've found this number : " << number << std::endl;
             break;
     }
-    return new Symbole;
+    return token;
 }
 
 // Reads the next symbol and the pointer shifts

@@ -14,12 +14,12 @@
 class Nombre : public Expr {
 public:
 
+
     virtual int eval() ;
 
-    Nombre(int id);
+    Nombre(int val);
 
     virtual ~Nombre() {}
-    
 private:
    int val; 
    
