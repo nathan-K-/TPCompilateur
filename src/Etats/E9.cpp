@@ -8,6 +8,7 @@
 #include "../Symbole.h"
 #include "../Automate.h"
 #include "E9.h"
+#include "../Expr.h"
 
 
 bool E9::transition(Automate &automate, Symbole *s) {
@@ -21,7 +22,7 @@ bool E9::transition(Automate &automate, Symbole *s) {
             Expr * e1 = (Expr *) automate.popSymbol();
             automate.popAndDestroySymbol();
             Expr * e2 = (Expr *) automate.popSymbol();
-            automate.reduction(3 , );
+            //automate.reduction(3 , new );
             break;
     }
     return false;
