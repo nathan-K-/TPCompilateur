@@ -8,9 +8,12 @@
 #ifndef TPCOMPILATEUR_SYMBOLE_H
 #define TPCOMPILATEUR_SYMBOLE_H
 
+typedef enum {E_, Ep_, nb_, plus_, moins_, mult_, open_, close_, end_} Token;
+
 class Symbole {
 
 public:
+
 //----------------------------------------------------- Méthodes publiques
     void print();
 
@@ -29,7 +32,7 @@ public:
      */
 
 protected:
-//----------------------------------------------------- Méthodes protégées
+//----------------------------------------------------- Attributs protégées
     int ident;
 
 };
