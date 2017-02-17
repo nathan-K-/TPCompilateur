@@ -14,7 +14,7 @@
 class Nombre : public Symbole {
 public:
 
-    Nombre(int id) : Symbole(id) {}
+    Nombre(int id);
 
 };
 
