@@ -8,8 +8,13 @@
 #include "Nombre.h"
 
 
-Nombre::Nombre(int id) : Symbole(id) {
+Nombre::Nombre(int val) : val(val) {
     //empty
+    
 }
+
+int Nombre::eval(){
+        return val;
+    }
 
 

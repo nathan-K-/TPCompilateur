@@ -14,8 +14,8 @@
 class Nombre : public Symbole {
 public:
 
-    Nombre(int id);
-    
+    Nombre(int val);
+    int eval();
 private:
    int val; 
    

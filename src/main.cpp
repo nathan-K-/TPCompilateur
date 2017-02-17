@@ -10,6 +10,7 @@
 
 #include "Automate.h"
 #include "Lexer.h"
+#include "Nombre.h"
 
 int main(){
     std::cout << "Hello world !" << std::endl;
@@ -19,7 +20,8 @@ int main(){
     delete(tomate);
     
     Lexer * lex = new Lexer("36");
-    Symbole * s = lex->next();
+    Nombre* s = dynamic_cast<Nombre*>(lex->next());
+    std::cout << s->eval() << std::endl;
     delete(s);
     
     return 0;
