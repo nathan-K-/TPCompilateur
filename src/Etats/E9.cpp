@@ -19,10 +19,12 @@ bool E9::transition(Automate &automate, Symbole *s) {
             break;
         default:
             automate.putSymbol(s);
-            Expr * e1 = (Expr *) automate.popSymbol();
+
             automate.popAndDestroySymbol();
-            Expr * e2 = (Expr *) automate.popSymbol();
-            //automate.reduction(3 , new );
+            Expr * e = (Expr *) automate.popSymbol();
+            automate.popAndDestroySymbol();
+
+            automate.reduction(3 , e);
             break;
     }
     return false;
