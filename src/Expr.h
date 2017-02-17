@@ -19,10 +19,9 @@ public:
 //----------------------------------------------------- Méthodes publiques
     virtual double eval(const std::map<std::string, double> &valeurs) = 0;
 
-
 //-------------------------------------------- Constructeurs - destructeur
 
-    Expr();
+    Expr() : Symbole(E_) {}
     /**
      * Constructeur
      */

@@ -20,6 +20,7 @@ void Automate::reduction(int n, Symbole *s) {
         delete (statestack->back());
         statestack->pop_back();
     }
+
     //TODO verifier ça (back et pas front)
     statestack->back()->transition(*this, s);
 }
