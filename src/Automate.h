@@ -20,8 +20,7 @@ public:
     void reduction(int n, Symbole * s);
 
     void putSymbol(Symbole * s);
-    Symbole * getBackSymbol();
-    void popSymbol();
+    Symbole * popSymbol();
     void popAndDestroySymbol();
 
     std::vector<Symbole *> * symbolstack;

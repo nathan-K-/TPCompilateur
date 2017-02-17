@@ -26,6 +26,7 @@ bool E3::transition(Automate &automate, Symbole *s) {
 
             automate.reduction(1, n);
             break;
+
     }
     return false;
 }
