@@ -13,6 +13,7 @@
 bool E3::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case PLUS:
+
             automate.reduction(1 , s);
             break;
         case MULT:

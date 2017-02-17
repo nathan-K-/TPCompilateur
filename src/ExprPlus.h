@@ -1,36 +1,40 @@
 /*************************************************************************
-                                    Expr
+                                    ExprPlus
                              -------------------
     début                : 17.02
     copyright            : reprise du cours
 *************************************************************************/
 
-#ifndef TPCOMPILATEUR_EXPR_H
-#define TPCOMPILATEUR_EXPR_H
+#ifndef TPCOMPILATEUR_EXPRPLUS_H
+#define TPCOMPILATEUR_EXPRPLUS_H
 
-#include <string>
-#include <map>
 
-#include "Symbole.h"
+#include "Expr.h"
 
-class Expr : public Symbole {
+class ExprPlus : public Expr {
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual int eval() = 0;
+    virtual int eval() {return s1->eval() + s2->eval();}
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Expr() : Symbole(E_) {}
+    ExprPlus(Expr * expr1, Expr * expr2) : s1(expr1), s2(expr2) {}
     /**
      * Constructeur
      */
 
-    virtual ~Expr() {}
+    virtual ~ExprPlus() {}
     /**
      * Destructeur
      */
 
+protected:
+    Expr * s1;
+    Expr * s2;
+
 };
 
-#endif //TPCOMPILATEUR_EXPR_H
+
+
+#endif //TPCOMPILATEUR_EXPRPLUS_H

@@ -7,8 +7,11 @@
 
 #include "Nombre.h"
 
+int Nombre::eval(){
+    return this->val;
+}
 
-Nombre::Nombre(int id) : Symbole(id) {
+Nombre::Nombre(int id){
     //empty
 }
 

@@ -19,6 +19,10 @@ public:
     void decalage(Symbole * s, Etat * e);
     void reduction(int n, Symbole * s);
 
+    void putSymbol(Symbole * s);
+    Symbole * popSymbol();
+    void popAndDestroySymbol();
+
     std::vector<Symbole *> * symbolstack;
     std::vector<Etat *> * statestack;
 
