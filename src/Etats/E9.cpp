@@ -12,9 +12,18 @@
 
 bool E9::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case VALEUR:
+        case PLUS:
+            automate.reduction(3, s);
             break;
-
+        case MULT:
+            automate.reduction(3, s);
+            break;
+        case CLOSE:
+            automate.reduction(3, s);
+            break;
+        case END:
+            automate.reduction(3, s);
+            break;
     }
     return false;
 }
