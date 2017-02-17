@@ -22,7 +22,6 @@ bool E3::transition(Automate &automate, Symbole *s) {
             //TODO : pas sur de ça
             automate.putSymbol(s);
             Nombre * n = (Nombre *) automate.popSymbol();
-            automate.popAndDestroySymbol();
 
             automate.reduction(1, n);
             break;
