@@ -16,7 +16,7 @@ void Automate::decalage(Symbole * s, Etat * e){
 }
 
 void Automate::reduction(int n, Symbole *s) {
-    for (unsigned int i=0; i<n; i++){
+    for (int i=0; i<n; i++){
         delete (statestack->back());
         statestack->pop_back();
     }
