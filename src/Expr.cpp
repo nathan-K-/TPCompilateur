@@ -7,7 +7,7 @@
 
 #include "Expr.h"
 
-Expr::Expr() : Symbole((int) Expr) {
+Expr::Expr() : Symbole((int) E_) {
     //empty
 }
 

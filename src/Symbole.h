@@ -10,7 +10,7 @@
 
 #include <string>
 
-typedef enum {E_, Ep_, nb_, plus_, mult_, open_, close_, end_} Token;
+typedef enum {E_, Ep_, plus_, mult_, open_, close_, end_,  nb_} Token;
 
 const std::string TokenLabels[] = {"E", "E'", "+", "*", "(", ")", "$"};
 
