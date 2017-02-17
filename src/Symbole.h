@@ -34,7 +34,7 @@ public:
     /**
      * Destructeur
      */
-
+    Symbole(){};
 protected:
 //----------------------------------------------------- Attributs protégées
     int ident;
