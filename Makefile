@@ -1,6 +1,6 @@
 # Compiler
 CC = g++
-OPTS = -c -Wall
+OPTS = -c -Wall -std=c++11
 
 # Project name
 PROJECT = analyseur

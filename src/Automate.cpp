@@ -10,12 +10,12 @@
 
 
 void Automate::decalage(Symbole * s, Etat * e){
-    symbolstack->push_back(e);
+    symbolstack->push_back(s);
     statestack->push_back(e);
 }
 
 Automate::Automate() {
-    symbolstack = new std::vector<Etat *>;
+    symbolstack = new std::vector<Symbole *>;
     statestack = new std::vector<Etat *>;
 }
 

@@ -18,7 +18,7 @@ class Automate {
 public:
     void decalage(Symbole * s, Etat * e);
 
-    std::vector<Etat *> * symbolstack;
+    std::vector<Symbole *> * symbolstack;
     std::vector<Etat *> * statestack;
 
     Automate();

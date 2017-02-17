@@ -8,7 +8,11 @@
 #ifndef TPCOMPILATEUR_SYMBOLE_H
 #define TPCOMPILATEUR_SYMBOLE_H
 
-typedef enum {E_, Ep_, nb_, plus_, moins_, mult_, open_, close_, end_} Token;
+#include <string>
+
+typedef enum {E_, Ep_, nb_, plus_, mult_, open_, close_, end_} Token;
+
+const std::string TokenLabels[] = {"E", "E'", "+", "*", "(", ")", "$"};
 
 class Symbole {
 

@@ -21,9 +21,9 @@ public:
     virtual bool transition (Automate & automate, Symbole * s) = 0;
 
 
-    enum types { EXPR, VARIABLE, NOMBRE, OUVREPAR }; //todo : ??
+    enum types { VALEUR, PLUS, MULT, OPEN, CLOSE, END }; //todo : ??
 //-------------------------------------------- Constructeurs - destructeur
-    Etat(std::string name);
+    Etat() {}
     /**
      * Constructeur
      */
@@ -32,9 +32,6 @@ public:
     /**
      * Destructeur
      */
-
-protected:
-    std::string name;
 
 };
 

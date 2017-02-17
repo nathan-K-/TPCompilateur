@@ -1,27 +1,26 @@
 /*************************************************************************
-                                    E1
+                                    E3
                              -------------------
     début                : 17.02
     copyright            : (C) 2017 par HAMOUMA Naima et KIENLEN Nathan
 *************************************************************************/
-#ifndef TPCOMPILATEUR_E1_H
-#define TPCOMPILATEUR_E1_H
+#ifndef TPCOMPILATEUR_E3_H
+#define TPCOMPILATEUR_E3_H
 
 #include "Etat.h"
 #include "../Automate.h"
 
-class E1 : public Etat {
+class E3 : public Etat {
 public:
-
     virtual bool transition (Automate & automate, Symbole * s);
 
     //-------------------------------------------- Constructeurs - destructeur
-    E1() {}
+    E3() {}
     /**
      * Constructeur
      */
 
-    virtual ~E1() {}
+    virtual ~E3() {}
     /**
      * Destructeur
      */
@@ -29,4 +28,4 @@ public:
 };
 
 
-#endif //TPCOMPILATEUR_E1_H
+#endif //TPCOMPILATEUR_E3_H

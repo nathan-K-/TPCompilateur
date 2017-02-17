@@ -22,7 +22,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Expr() : Symbole((int) Expr) {} //TODO : changement depuis cours : le cast
+    //Expr() : Symbole((int) Expr) {} //TODO : changement depuis cours : le cast
     /**
      * Constructeur
      */

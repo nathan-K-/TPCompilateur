@@ -1,5 +1,5 @@
 /*************************************************************************
-                                    E1
+                                    E0
                              -------------------
     début                : 17.02
     copyright            : (C) 2017 par HAMOUMA Naima et KIENLEN Nathan
@@ -7,21 +7,19 @@
 
 #include "../Symbole.h"
 #include "../Automate.h"
-#include "E1.h"
-#include "E4.h"
-#include "E5.h"
+#include "E0.h"
+#include "E3.h"
+#include "E2.h"
 
 
-bool E1::transition(Automate &automate, Symbole *s) {
+bool E0::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case PLUS:
-            automate.decalage(s, new E4);
+        case VALEUR:
+            automate.decalage(s, new E3);
             break;
-        case MULT:
-            automate.decalage(s, new E5);
+        case OPEN:
+            automate.decalage(s, new E2);
             break;
-        case END:
-            return true;
     }
     return false;
 }
