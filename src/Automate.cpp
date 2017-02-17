@@ -7,11 +7,21 @@
 
 #include "Symbole.h"
 #include "Automate.h"
+#include "Etats/Etat.h"
 
 
 void Automate::decalage(Symbole * s, Etat * e){
     symbolstack->push_back(s);
     statestack->push_back(e);
+}
+
+void Automate::reduction(int n, Symbole *s) {
+    for (unsigned int i=0; i<n; i++){
+        delete (statestack->back());
+        statestack->pop_back();
+    }
+    //TODO verifier ça (back et pas front)
+    statestack->back()->transition(*this, s);
 }
 
 Automate::Automate() {
