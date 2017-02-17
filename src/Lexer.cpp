@@ -3,7 +3,7 @@
 #include "Nombre.h"
 
 Lexer::Lexer(std::string input, int position) 
-:input(input), position(position){
+:input(input+"$"), position(position){
     
 }
 
@@ -28,15 +28,19 @@ Symbole * Lexer::next(){
         case ')':
             token = new Symbole(close_);
             break;
+        case '$' :
+            token = new Symbole(end_);
+            break;
         default:
             // If the next character is something else than a number
             // An error is signaled
             if (!isdigit(nextChar)){
-                std::cout << "Erreur position : " << position 
+                    std::cout << "Erreur position : " << position + 1
                             << " le caractère saisi n'es ni "
                                 "un nombre ni un opérateur!"
                                 << std::endl;
-                return nullptr;
+                    
+                    return nullptr;
             }
             // The character is a digit
             int i = position;
@@ -58,6 +62,7 @@ Symbole * Lexer::next(){
 // Reads the next symbol and the pointer shifts
 Symbole * Lexer::shift(){
     char nextChar = input[position];
+    std::cout << "Char : " << nextChar << std::endl;
     Symbole * token;
     switch (nextChar){
         case '+':
@@ -76,15 +81,19 @@ Symbole * Lexer::shift(){
             token = new Symbole(close_);
             position ++;
             break;
+        case '$' :
+            token = new Symbole(end_);
+            position ++;
+            break;
         default:
             // If the next character is something else than a number
             // An error is signaled
             if (!isdigit(nextChar)){
-                std::cout << "Erreur position : " << position 
+                    std::cout << "Erreur position : " << position + 1
                             << " le caractère saisi n'es ni "
                                 "un nombre ni un opérateur!"
                                 << std::endl;
-                return nullptr;
+                    return nullptr;
             }
             // The character is a digit
             int i = position;

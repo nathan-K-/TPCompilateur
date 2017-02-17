@@ -34,7 +34,7 @@ int main(){
     Automate * tomate = new Automate;
     delete(tomate);
     
-    Lexer * lex = new Lexer("36*+");
+    Lexer * lex = new Lexer("36");
     Nombre* s = dynamic_cast<Nombre*>(lex->shift());
     Symbole * sy = lex->shift();
     

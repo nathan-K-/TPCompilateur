@@ -8,6 +8,7 @@
 #include "Symbole.h"
 #include "Automate.h"
 #include "Etats/Etat.h"
+#include "Etats/E0.h"
 
 
 void Automate::decalage(Symbole * s, Etat * e){
@@ -41,12 +42,22 @@ void Automate::popAndDestroySymbol() {
     statestack->pop_back();
 }
 
-
+bool Automate::lecture(){
+    
+}
 
 
 Automate::Automate() {
     symbolstack = new std::vector<Symbole *>;
     statestack = new std::vector<Etat *>;
+}
+
+Automate::Automate(std::string expr) {
+    symbolstack = new std::vector<Symbole *>;
+    statestack = new std::vector<Etat *>;
+    lexer = new Lexer(expr);
+    // Initialisation de la pile des états avec E0
+    statestack->push_back(new E0);
 }
 
 Automate::~Automate() {

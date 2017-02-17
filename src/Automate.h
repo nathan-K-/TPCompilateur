@@ -10,6 +10,7 @@
 
 #include "Symbole.h"
 #include <vector>
+#include "Lexer.h"
 
 class Etat;
 
@@ -22,11 +23,14 @@ public:
     void putSymbol(Symbole * s);
     Symbole * popSymbol();
     void popAndDestroySymbol();
+    bool lecture();
 
     std::vector<Symbole *> * symbolstack;
     std::vector<Etat *> * statestack;
+    Lexer *lexer;
 
     Automate();
+    Automate(std::string expr);
     virtual ~Automate();
 
 };

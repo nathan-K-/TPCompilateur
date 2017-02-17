@@ -2,6 +2,8 @@
 #ifndef LEXER_H
 #define LEXER_H
 
+#define fin(c) (c=='\0' or c=='\n')
+
 #include <iostream>
 #include <string>
 #include "Symbole.h"
