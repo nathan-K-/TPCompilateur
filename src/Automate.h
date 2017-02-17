@@ -17,17 +17,21 @@ class Etat;
 class Automate {
 
 public:
+
     void decalage(Symbole * s, Etat * e);
     void reduction(int n, Symbole * s);
 
     void putSymbol(Symbole * s);
     Symbole * popSymbol();
     void popAndDestroySymbol();
-    bool lecture();
+
+    int lecture(std::string inputString);
+
 
     std::vector<Symbole *> * symbolstack;
     std::vector<Etat *> * statestack;
     Lexer *lexer;
+
 
     Automate();
     Automate(std::string expr);

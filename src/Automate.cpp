@@ -42,7 +42,7 @@ void Automate::popAndDestroySymbol() {
     statestack->pop_back();
 }
 
-bool Automate::lecture(){
+int Automate::lecture(std::string inputString){
     
 }
 

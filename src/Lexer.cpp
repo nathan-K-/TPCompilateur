@@ -35,12 +35,13 @@ Symbole * Lexer::next(){
             // If the next character is something else than a number
             // An error is signaled
             if (!isdigit(nextChar)){
-                    std::cout << "Erreur position : " << position + 1
-                            << " le caractère saisi n'es ni "
-                                "un nombre ni un opérateur!"
-                                << std::endl;
-                    
-                    return nullptr;
+                    //std::cout << "Erreur position : " << position + 1
+                     //       << " le caractère saisi n'es ni "
+                    //            "un nombre ni un opérateur!"
+                     //           << std::endl;
+
+                //todo : on pourrait aussi l'ignorer... a voir
+                return nullptr;
             }
             // The character is a digit
             int i = position;
@@ -53,7 +54,7 @@ Symbole * Lexer::next(){
             
             token = new Nombre(number);
             
-            std::cout << "I've found this number : " << number << std::endl;
+            //std::cout << "I've found this number : " << number << std::endl;
             break;
     }
     return token;
@@ -89,10 +90,10 @@ Symbole * Lexer::shift(){
             // If the next character is something else than a number
             // An error is signaled
             if (!isdigit(nextChar)){
-                    std::cout << "Erreur position : " << position + 1
-                            << " le caractère saisi n'es ni "
-                                "un nombre ni un opérateur!"
-                                << std::endl;
+                    //std::cout << "Erreur position : " << position + 1
+                    //        << " le caractère saisi n'es ni "
+                    //            "un nombre ni un opérateur!"
+                    //            << std::endl;
                     return nullptr;
             }
             // The character is a digit
@@ -107,7 +108,7 @@ Symbole * Lexer::shift(){
             
             token = new Nombre(number);
             
-            std::cout << "I've found this number : " << number << std::endl;
+            //std::cout << "I've found this number : " << number << std::endl;
             position = i;
             break;
     }
