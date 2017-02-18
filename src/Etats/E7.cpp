@@ -15,19 +15,15 @@
 
 bool E7::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case MULT:
-            automate.decalage(s, new E5);
+        case mult_:
+            automate.decalage(new E5);
             break;
-        case VALEUR:
+        case val_:
             break;
-        case OPEN:
+        case open_:
             break;
         default:
-            automate.putSymbol(s);
-            Expr * e1 = (Expr *) automate.popSymbol();
-            automate.popAndDestroySymbol();
-            Expr * e2 = (Expr *) automate.popSymbol();
-            automate.reduction(3, new ExprPlus(e1, e2));
+            automate.reduction(3);
             break;
     }
 

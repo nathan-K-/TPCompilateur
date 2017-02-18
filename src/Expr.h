@@ -21,11 +21,11 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Expr() : Symbole(E_) {}
+    Expr(int ident) : Symbole(ident) {}
     /**
      * Constructeur
      */
-
+    Expr() : Symbole(E_) {} 
     virtual ~Expr() {}
     /**
      * Destructeur

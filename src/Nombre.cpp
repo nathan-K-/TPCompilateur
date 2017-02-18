@@ -12,7 +12,7 @@ int Nombre::eval(){
 }
 
 
-Nombre::Nombre(int val) : val(val) {
+Nombre::Nombre(int val) : Expr(val_), val(val) {
 
 }
 

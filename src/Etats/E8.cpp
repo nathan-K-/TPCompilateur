@@ -14,16 +14,12 @@
 
 bool E8::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case VALEUR:
+        case val_:
             break;
-        case OPEN:
+        case open_:
             break;
         default:
-            automate.putSymbol(s);
-            Expr * e1 = (Expr *) automate.popSymbol();
-            automate.popAndDestroySymbol();
-            Expr * e2 = (Expr *) automate.popSymbol();
-            automate.reduction(3 , new ExprMult(e1, e2));
+            automate.reduction(3);
             break;
     }
     return false;

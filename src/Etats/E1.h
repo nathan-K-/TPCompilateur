@@ -14,7 +14,6 @@ class E1 : public Etat {
 public:
 
     virtual bool transition (Automate & automate, Symbole * s);
-
     //-------------------------------------------- Constructeurs - destructeur
     E1() {}
     /**

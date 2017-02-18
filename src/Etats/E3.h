@@ -13,7 +13,6 @@
 class E3 : public Etat {
 public:
     virtual bool transition (Automate & automate, Symbole * s);
-
     //-------------------------------------------- Constructeurs - destructeur
     E3() {}
     /**

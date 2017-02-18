@@ -10,16 +10,20 @@
 #include "E5.h"
 #include "E2.h"
 #include "E3.h"
-
+#include "E8.h"
 
 bool E5::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case VALEUR:
-            automate.decalage(s, new E3);
+        case val_:
+            automate.decalage(new E3);
             break;
-        case OPEN:
-            automate.decalage(s, new E2);
+        case open_:
+            automate.decalage(new E2);
             break;
     }
     return false;
+}
+
+Etat * E5::nextState(){
+    return new E8;
 }

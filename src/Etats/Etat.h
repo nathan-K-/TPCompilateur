@@ -19,7 +19,7 @@ public:
     void print() const;
 
     virtual bool transition (Automate & automate, Symbole * s) = 0;
-
+    virtual Etat * nextStat() {return nullptr;};
 
     enum types { VALEUR, PLUS, MULT, OPEN, CLOSE, END }; //todo : ??
 //-------------------------------------------- Constructeurs - destructeur

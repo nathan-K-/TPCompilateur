@@ -14,15 +14,14 @@
 
 bool E1::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case PLUS:
-            automate.decalage(s, new E4);
+        case plus_:
+            automate.decalage(new E4);
             break;
-        case MULT:
-            automate.decalage(s, new E5);
+        case mult_:
+            automate.decalage(new E5);
             break;
-        case END:
+        case end_:
             return true;
     }
     return false;
 }
-

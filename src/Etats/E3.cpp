@@ -14,16 +14,12 @@
 
 bool E3::transition(Automate &automate, Symbole *s) {
     switch (*s) {
-        case VALEUR:
+        case val_:
             break;
-        case OPEN:
+        case open_:
             break;
         default:
-            //TODO : pas sur de ça
-            automate.putSymbol(s);
-            Nombre * n = (Nombre *) automate.popSymbol();
-
-            automate.reduction(1, n);
+            automate.reduction(1);
             break;
 
     }
