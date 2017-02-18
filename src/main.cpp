@@ -17,8 +17,14 @@ std::vector<std::string *> * testVector;
 
 int main(){
     std::cout << "Hello world !" << std::endl;
+
+    std::string input;
+
+    std::cin >> input;
+
     testVector = new std::vector<std::string *>;
 
+    /*
     std::string first = "premier";
     std::string second = "second";
     std::string third = "troisieme";
@@ -33,13 +39,26 @@ int main(){
     
     Automate * tomate = new Automate;
     delete(tomate);
+     */
+
+
     
-    Lexer * lex = new Lexer("36");
-    Nombre* s = dynamic_cast<Nombre*>(lex->shift());
-    Symbole * sy = lex->shift();
-    
-    std::cout << (int)*sy << std::endl;
-    
+    Lexer * lex = new Lexer(input);
+    //Nombre* s = dynamic_cast<Nombre*>(lex->shift());
+    //Symbole * sy = lex->shift();
+
+    Symbole* nextTest = lex->next();
+
+    while (! (nextTest)->isEnd()){
+        Symbole * current = (lex->shift());
+        std::cout << (int)*current << std::endl;
+        delete(current);
+        delete(nextTest);
+        nextTest = lex->next();
+    }
+
+
+    delete(lex);
     delete(testVector);
     return 0;
 }

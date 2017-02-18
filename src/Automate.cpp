@@ -78,6 +78,7 @@ void Automate::popAndDestroySymbol() {
     statestack->pop_back();
 }
 
+
 // Get the next character from the input 
 Symbole * Automate::next(){
     return lexer->next();
@@ -96,6 +97,7 @@ int Automate::lecture(){
         accept = state->transition(*this,s);
     }
     int result = static_cast<Expr *>(symbolstack->back())->eval();
+
     
     return result;
 }

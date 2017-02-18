@@ -31,6 +31,7 @@ public:
     std::vector<Etat *> * statestack;
     Lexer *lexer;
 
+
     Automate();
     Automate(std::string expr);
     virtual ~Automate();
