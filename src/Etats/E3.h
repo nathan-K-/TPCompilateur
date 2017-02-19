@@ -23,7 +23,7 @@ public:
     /**
      * Destructeur
      */
-
+    operator int() const { return 3; }
 };
 
 

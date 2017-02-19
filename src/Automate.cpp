@@ -14,6 +14,7 @@
 
 // Returns the next Symbol and shifts
 void Automate::decalage(Etat * e){
+    std::cout << " -------------- Décalage ------------------" << std::endl;
     Symbole * s = this->shift();
     symbolstack->push_back(s);
     statestack->push_back(e);
@@ -21,6 +22,7 @@ void Automate::decalage(Etat * e){
 }
 
 void Automate::reduction(int n) {
+    std::cout << " -------------- Réduction ------------------" << std::endl;
     Etat * state;
     Expr * e;
     // Create the expression to put on the symbolstack
@@ -28,6 +30,7 @@ void Automate::reduction(int n) {
         // The expression is a number
         e = static_cast <Expr *> (symbolstack->back());
         symbolstack->pop_back();
+       
     } else {
         // We assume that n == 3
         // The second symbol popped determines the nature of the expression 
@@ -53,11 +56,10 @@ void Automate::reduction(int n) {
         delete (statestack->back());
         statestack->pop_back();
     }
-    
+        
     // Put to the statestack the next state having a non-terminal
     state = statestack->back();
-    statestack->push_back(state->nextStat());
-    
+    statestack->push_back(state->nextState());
     // Put to the symbolstack the new expression
     symbolstack->push_back(e);
 }
@@ -90,11 +92,20 @@ Symbole * Automate::shift(){
 
 int Automate::lecture(){
     Etat * state = statestack->back();
-    Symbole * s = next();
+    Symbole * s = next();    
     bool accept = state->transition(*this,s);
     while(!accept){
+        std::cout << "Sommets de piles : "<<  (int) * statestack->back() << " : " 
+                                            <<(int) * symbolstack->back() << std::endl;
+        
+        // Get the next symbol
         s = next();
+        
+        // Get the top of the statestack 
+        state = statestack->back();
+        
         accept = state->transition(*this,s);
+                
     }
     int result = static_cast<Expr *>(symbolstack->back())->eval();
 
@@ -119,4 +130,5 @@ Automate::Automate(std::string expr) {
 Automate::~Automate() {
     delete(symbolstack);
     delete(statestack);
+    delete(lexer);
 }

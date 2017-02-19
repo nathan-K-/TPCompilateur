@@ -63,7 +63,6 @@ Symbole * Lexer::next(){
 // Reads the next symbol and the pointer shifts
 Symbole * Lexer::shift(){
     char nextChar = input[position];
-    std::cout << "Char : " << nextChar << std::endl;
     Symbole * token;
     switch (nextChar){
         case '+':
@@ -107,8 +106,6 @@ Symbole * Lexer::shift(){
             int number = stoi(numberS);
             
             token = new Nombre(number);
-            
-            //std::cout << "I've found this number : " << number << std::endl;
             position = i;
             break;
     }

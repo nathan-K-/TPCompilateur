@@ -26,7 +26,7 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
     operator int() const { return ident; }
-
+    
 //-------------------------------------------- Constructeurs - destructeur
     Symbole (int id) : ident (id) {}
     /**

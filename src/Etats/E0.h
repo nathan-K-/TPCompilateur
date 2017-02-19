@@ -25,9 +25,10 @@ public:
     /**
      * Destructeur
      */
-
+    operator int() const { return 0; }
 
 };
+
 
 
 #endif //TPCOMPILATEUR_E0_H

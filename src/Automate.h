@@ -26,7 +26,7 @@ public:
     Symbole * next();
     Symbole * shift();
     int lecture();
-
+    
     std::vector<Symbole *> * symbolstack;
     std::vector<Etat *> * statestack;
     Lexer *lexer;
