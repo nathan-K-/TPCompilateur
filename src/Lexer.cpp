@@ -15,6 +15,11 @@ Lexer::~Lexer() {
 Symbole * Lexer::next(){
     char nextChar = input[position];
     Symbole * token;
+    // Ignore spaces and tabulations
+    while (nextChar == ' ' || nextChar == '\t'){
+        position ++;
+        nextChar = input[position];
+    }
     switch (nextChar){
         case '+':
             token = new Symbole(plus_);
