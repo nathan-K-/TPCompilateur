@@ -38,36 +38,38 @@ void Automate::reduction(int n) {
         // To create (+, *, or () )
         
         Expr * first = static_cast <Expr *> (symbolstack->back());
-        symbolstack->pop_back();
+        this->popSymbol();
         
         Symbole * second = symbolstack->back();
-        symbolstack->pop_back();
+        this->popSymbol();
         
         Expr * third = static_cast <Expr *> (symbolstack->back());
-        symbolstack->pop_back();
+        this->popSymbol();
         
         if ((int)* second == plus_){
             //std::cout << "expr + entre: " << first->eval() << " et " << third->eval() << std::endl; //todo for debug
             e = new ExprPlus(first,third);
+            delete(second);
         } else if ((int)* second == mult_) {
             //std::cout << "expr * entre: " << first->eval() << " et " << third->eval() << std::endl; //todo for debug
             e = new ExprMult(first,third);
+            delete(second);
         } else {
             //In this case, it is paranthesis
             e = new Nombre(((Nombre *) second)->eval()); //todo : fix pas beau !
+            delete(first);
+            delete(third);
         }
-        delete(second);
     }
     for (int i=0; i<n; i++){
-        delete (statestack->back());
-        statestack->pop_back();
+        this->popAndDestroyState();
     }
         
     // Put to the statestack the next state having a non-terminal
     state = statestack->back();
-    statestack->push_back(state->nextState());
+    this->putState(state->nextState());
     // Put to the symbolstack the new expression
-    symbolstack->push_back(e);
+    this->putSymbol(e);
 }
 
 
@@ -82,6 +84,22 @@ Symbole * Automate::popSymbol(){
 }
 
 void Automate::popAndDestroySymbol() {
+    delete (statestack->back());
+    statestack->pop_back();
+}
+
+
+void Automate::putState(Etat *e) {
+    this->statestack->push_back(e);
+}
+
+Etat * Automate::popState(){
+    Etat * lastState = this->statestack->back();
+    statestack->pop_back();
+    return lastState;
+}
+
+void Automate::popAndDestroyState() {
     delete (statestack->back());
     statestack->pop_back();
 }
