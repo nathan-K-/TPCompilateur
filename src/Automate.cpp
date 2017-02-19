@@ -11,6 +11,7 @@
 #include "Etats/E0.h"
 #include "ExprPlus.h"
 #include "ExprMult.h"
+#include "Nombre.h"
 
 // Returns the next Symbol and shifts
 void Automate::decalage(Etat * e){
@@ -22,7 +23,7 @@ void Automate::decalage(Etat * e){
 }
 
 void Automate::reduction(int n) {
-    std::cout << " -------------- Réduction ------------------" << std::endl;
+    std::cout << " -------------- Réduction de " << n << " ------------------" << std::endl;
     Etat * state;
     Expr * e;
     // Create the expression to put on the symbolstack
@@ -34,23 +35,28 @@ void Automate::reduction(int n) {
     } else {
         // We assume that n == 3
         // The second symbol popped determines the nature of the expression 
-        // To create (+ or *)
+        // To create (+, *, or () )
         
-        Expr * e1 = static_cast <Expr *> (symbolstack->back());
+        Expr * first = static_cast <Expr *> (symbolstack->back());
         symbolstack->pop_back();
         
-        Symbole * op = symbolstack->back();
+        Symbole * second = symbolstack->back();
         symbolstack->pop_back();
         
-        Expr * e2 = static_cast <Expr *> (symbolstack->back());
+        Expr * third = static_cast <Expr *> (symbolstack->back());
         symbolstack->pop_back();
         
-        if ((int)* op == plus_){
-            e = new ExprPlus(e1,e2);
+        if ((int)* second == plus_){
+            //std::cout << "expr + entre: " << first->eval() << " et " << third->eval() << std::endl; //todo for debug
+            e = new ExprPlus(first,third);
+        } else if ((int)* second == mult_) {
+            //std::cout << "expr * entre: " << first->eval() << " et " << third->eval() << std::endl; //todo for debug
+            e = new ExprMult(first,third);
         } else {
-            e = new ExprMult(e1,e2);
+            //In this case, it is paranthesis
+            e = new Nombre(((Nombre *) second)->eval()); //todo : fix pas beau !
         }
-        delete(op);
+        delete(second);
     }
     for (int i=0; i<n; i++){
         delete (statestack->back());
@@ -95,8 +101,8 @@ int Automate::lecture(){
     Symbole * s = next();    
     bool accept = state->transition(*this,s);
     while(!accept){
-        std::cout << "Sommets de piles : "<<  (int) * statestack->back() << " : " 
-                                            <<(int) * symbolstack->back() << std::endl;
+        std::cout << "Sommets de piles : "<< "states : " << (int) * statestack->back() << " : "
+                                            << " symbol : " << (int) * symbolstack->back() << std::endl;
         
         // Get the next symbol
         s = next();
