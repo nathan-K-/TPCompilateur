@@ -17,7 +17,7 @@ int main(){
     bool continuer = true;
     while (continuer){
         std::cout << "/!\\ Ne sont permis que les nombres, +, *, (, et ) /!\\" << std::endl 
-                << "Entrez une expressions arithmétique ... " << std::endl;
+                << "Entrez une expression arithmétique ... " << std::endl;
         std::string expr;
         std::cin >> expr ;
 

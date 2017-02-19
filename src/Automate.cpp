@@ -32,25 +32,36 @@ void Automate::reduction(int n) {
         symbolstack->pop_back();
        
     } else {
-        // We assume that n == 3
-        // The second symbol popped determines the nature of the expression 
-        // To create (+ or *)
-        
-        Expr * e1 = static_cast <Expr *> (symbolstack->back());
-        symbolstack->pop_back();
-        
-        Symbole * op = symbolstack->back();
-        symbolstack->pop_back();
-        
-        Expr * e2 = static_cast <Expr *> (symbolstack->back());
-        symbolstack->pop_back();
-        
-        if ((int)* op == plus_){
-            e = new ExprPlus(e1,e2);
+        if ((int)* symbolstack->back() == close_){
+            // Reduction 4
+            delete(symbolstack->back());
+            symbolstack->pop_back(); // Close 
+            e = static_cast <Expr *> (symbolstack->back());
+            symbolstack->pop_back(); // Expression
+            delete(symbolstack->back());
+            symbolstack->pop_back(); // Open
         } else {
-            e = new ExprMult(e1,e2);
+            // Reduction 2 or 3
+            // The second symbol popped determines the nature of the expression 
+            // To create (+ or *)
+
+            Expr * e1 = static_cast <Expr *> (symbolstack->back());
+            symbolstack->pop_back();
+
+            Symbole * op = symbolstack->back();
+            symbolstack->pop_back();
+
+            Expr * e2 = static_cast <Expr *> (symbolstack->back());
+            symbolstack->pop_back();
+
+            if ((int)* op == plus_){
+                e = new ExprPlus(e1,e2);
+            } else {
+                e = new ExprMult(e1,e2);
+            }
+            delete(op);
         }
-        delete(op);
+        
     }
     for (int i=0; i<n; i++){
         delete (statestack->back());
@@ -62,6 +73,7 @@ void Automate::reduction(int n) {
     statestack->push_back(state->nextState());
     // Put to the symbolstack the new expression
     symbolstack->push_back(e);
+    
 }
 
 
@@ -107,8 +119,10 @@ int Automate::lecture(){
         accept = state->transition(*this,s);
                 
     }
+    
+    
     int result = static_cast<Expr *>(symbolstack->back())->eval();
-
+    std::cout << "Symbole ! " << (int) * s << std::endl;
     
     return result;
 }
