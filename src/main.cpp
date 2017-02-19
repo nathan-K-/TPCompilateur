@@ -23,12 +23,12 @@ int main(){
 
         Automate * automate = new Automate(expr);
 
-        int res = automate->lecture();
+        int resultat = automate->lecture();
         
         delete(automate);
         
         std::cout << "--- Résultat --- " << std::endl
-                    << expr << " = " << res << std::endl;
+                    << expr << " = " << resultat << std::endl;
         std::cout << " Entrez 0 pour terminer et 1 pour continuer ..." << std::endl;
         std::cin >> continuer;
     }
