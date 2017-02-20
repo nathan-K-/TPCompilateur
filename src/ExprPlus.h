@@ -24,7 +24,10 @@ public:
      * Constructeur
      */
 
-    virtual ~ExprPlus() {}
+    virtual ~ExprPlus() {
+        delete (s1);
+        delete (s2);
+    }
     /**
      * Destructeur
      */
@@ -34,7 +37,5 @@ protected:
     Expr * s2;
 
 };
-
-
 
 #endif //TPCOMPILATEUR_EXPRPLUS_H

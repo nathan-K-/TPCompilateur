@@ -21,11 +21,12 @@ int main(){
     std::cout << "Expression saisie : " << expr << std::endl;
     Automate * automate = new Automate(expr);
 
-    int res = automate->lecture();
+
+    int resultat = automate->lecture();
 
     delete(automate);
 
     std::cout << "--- Résultat --- " << std::endl
-                << expr << " = " << res << std::endl;
-        
+                << expr << " = " << resultat << std::endl;
+       
 }

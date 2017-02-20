@@ -24,7 +24,10 @@ public:
      * Constructeur
      */
 
-    virtual ~ExprMult() {}
+    virtual ~ExprMult() {
+        delete (s1);
+        delete (s2);
+    }
     /**
      * Destructeur
      */

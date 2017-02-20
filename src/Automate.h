@@ -23,6 +23,11 @@ public:
     void putSymbol(Symbole * s);
     Symbole * popSymbol();
     void popAndDestroySymbol();
+
+    void putState(Etat * e);
+    void popAndDestroyState();
+    Etat * popState();
+
     Symbole * next();
     Symbole * shift();
     int lecture();

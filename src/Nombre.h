@@ -15,9 +15,9 @@ class Nombre : public Expr {
 public:
 
 
-    virtual int eval() ;
+    virtual int eval() { return this->val; }
 
-    Nombre(int val);
+    Nombre(int val) : Expr(val_), val(val) {}
 
     virtual ~Nombre() {}
 private:

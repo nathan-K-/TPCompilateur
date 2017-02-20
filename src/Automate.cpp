@@ -11,6 +11,7 @@
 #include "Etats/E0.h"
 #include "ExprPlus.h"
 #include "ExprMult.h"
+#include "Nombre.h"
 
 // Returns the next Symbol and shifts
 void Automate::decalage(Etat * e){
@@ -22,7 +23,7 @@ void Automate::decalage(Etat * e){
 }
 
 void Automate::reduction(int n) {
-    std::cout << " -------------- Réduction ------------------" << std::endl;
+    std::cout << " -------------- Réduction de " << n << " ------------------" << std::endl;
     Etat * state;
     Expr * e;
     // Create the expression to put on the symbolstack
@@ -64,16 +65,14 @@ void Automate::reduction(int n) {
         
     }
     for (int i=0; i<n; i++){
-        delete (statestack->back());
-        statestack->pop_back();
+        this->popAndDestroyState();
     }
         
     // Put to the statestack the next state having a non-terminal
     state = statestack->back();
-    statestack->push_back(state->nextState());
+    this->putState(state->nextState());
     // Put to the symbolstack the new expression
-    symbolstack->push_back(e);
-    
+    this->putSymbol(e);
 }
 
 
@@ -93,6 +92,22 @@ void Automate::popAndDestroySymbol() {
 }
 
 
+void Automate::putState(Etat *e) {
+    this->statestack->push_back(e);
+}
+
+Etat * Automate::popState(){
+    Etat * lastState = this->statestack->back();
+    statestack->pop_back();
+    return lastState;
+}
+
+void Automate::popAndDestroyState() {
+    delete (statestack->back());
+    statestack->pop_back();
+}
+
+
 // Get the next character from the input 
 Symbole * Automate::next(){
     return lexer->next();
@@ -107,8 +122,8 @@ int Automate::lecture(){
     Symbole * s = next();    
     bool accept = state->transition(*this,s);
     while(!accept){
-        std::cout << "Sommets de piles : "<<  (int) * statestack->back() << " : " 
-                                            <<(int) * symbolstack->back() << std::endl;
+        std::cout << "Sommets de piles : "<< "states : " << (int) * statestack->back() << " : "
+                                            << " symbol : " << (int) * symbolstack->back() << std::endl;
         
         // Get the next symbol
         s = next();
