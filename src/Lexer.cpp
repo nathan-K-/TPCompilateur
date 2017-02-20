@@ -16,7 +16,7 @@ Symbole * Lexer::next(){
     char nextChar = input[position];
     Symbole * token;
     // Ignore spaces and tabulations
-    while (nextChar == ' ' || nextChar == '\t'){
+    while (nextChar == ' ' || nextChar == '\t' || nextChar == '\n' || nextChar == '\r' ){
         position ++;
         nextChar = input[position];
     }
