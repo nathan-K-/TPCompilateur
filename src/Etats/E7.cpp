@@ -19,9 +19,15 @@ bool E7::transition(Automate &automate, Symbole *s) {
             automate.decalage(new E5);
             break;
         case val_:
-            break;
         case open_:
-            break;
+            std::cout 
+                << "-----------------------------"
+                << std::endl    
+                << "Attendu :  '+', '*' ou ')' "
+                << std::endl
+                << "Trouvé : " << TokenLabels[(int) * s] 
+                << std::endl; 
+            return true;
         default:
             automate.reduction(3);
             break;

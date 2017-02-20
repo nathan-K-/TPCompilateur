@@ -15,7 +15,6 @@
 
 // Returns the next Symbol and shifts
 void Automate::decalage(Etat * e){
-    std::cout << " -------------- Décalage ------------------" << std::endl;
     Symbole * s = this->shift();
     symbolstack->push_back(s);
     statestack->push_back(e);
@@ -23,7 +22,6 @@ void Automate::decalage(Etat * e){
 }
 
 void Automate::reduction(int n) {
-    std::cout << " -------------- Réduction de " << n << " ------------------" << std::endl;
     Etat * state;
     Expr * e;
     // Create the expression to put on the symbolstack
@@ -122,22 +120,25 @@ int Automate::lecture(){
     Symbole * s = next();    
     bool accept = state->transition(*this,s);
     while(!accept){
-        std::cout << "Sommets de piles : "<< "states : " << (int) * statestack->back() << " : "
-                                            << " symbol : " << (int) * symbolstack->back() << std::endl;
         
         // Get the next symbol
-        s = next();
+        while (this->next() == nullptr) {
+            this->shift();
+        }
+        s = this->next();
         
         // Get the top of the statestack 
         state = statestack->back();
         
-        accept = state->transition(*this,s);
-                
+        accept = state->transition(*this,s);        
     }
-    
-    
+    Symbole * sym = symbolstack->back();
+    while ((int)* sym != val_ && (int)* sym != E_){
+        delete(sym);
+        symbolstack->pop_back();
+        sym = symbolstack->back();
+    }
     int result = static_cast<Expr *>(symbolstack->back())->eval();
-    std::cout << "Symbole ! " << (int) * s << std::endl;
     
     return result;
 }

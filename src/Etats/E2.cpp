@@ -19,6 +19,15 @@ bool E2::transition(Automate &automate, Symbole *s) {
             break;
         case open_:
             automate.decalage(new E2);
+        default:
+            std::cout 
+                << "-----------------------------"
+                << std::endl
+                << "Attendu :  valeur ou '(', "
+                << std::endl
+                << "Trouvé : " << TokenLabels[(int) * s] 
+                << std::endl; 
+            return true;
 
     }
     return false;

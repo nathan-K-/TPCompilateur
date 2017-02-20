@@ -14,9 +14,15 @@
 bool E9::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case val_:
-            break;
         case open_:
-            break;
+            std::cout
+                << "-----------------------------"
+                << std::endl    
+                << "Attendu :  '+', '*'  ou ')'"
+                << std::endl
+                << "Trouvé : " << TokenLabels[(int) * s] 
+                << std::endl; 
+            return true;
         default:
             automate.reduction(3);
             break;

@@ -22,6 +22,15 @@ bool E1::transition(Automate &automate, Symbole *s) {
             break;
         case end_:
             return true;
+        default:
+            std::cout 
+                << "-----------------------------"
+                << std::endl    
+                << "Attendu :  '+', '*' ou fin de l'expression "
+                << std::endl
+                << "Trouvé : " << TokenLabels[(int) * s] 
+                << std::endl; 
+            return true;
     }
     return false;
 }

@@ -24,6 +24,15 @@ bool E6::transition(Automate &automate, Symbole *s) {
         case close_:
             automate.decalage(new E9);
             break;
+        default:
+            std::cout 
+                << "-----------------------------"
+                << std::endl    
+                << "Attendu :  '+', '*' ou ')' "
+                << std::endl
+                << "Trouvé : " << TokenLabels[(int) * s] 
+                << std::endl; 
+            return true;
     }
     return false;
 }
