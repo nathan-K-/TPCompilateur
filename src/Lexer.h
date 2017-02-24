@@ -1,8 +1,13 @@
+/*************************************************************************
+                                    Lexer
+                             -------------------
+    début                : 17.02
+    auteurs              : HAMOUMA Naima et KIENLEN Nathan
+*************************************************************************/
 
 #ifndef LEXER_H
 #define LEXER_H
 
-#define fin(c) (c=='\0' or c=='\n')
 
 #include <iostream>
 #include <string>

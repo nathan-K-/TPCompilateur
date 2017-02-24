@@ -2,7 +2,7 @@
                                     Expr
                              -------------------
     début                : 17.02
-    copyright            : reprise du cours
+    auteurs              : HAMOUMA Naima et KIENLEN Nathan
 *************************************************************************/
 
 #ifndef TPCOMPILATEUR_EXPR_H

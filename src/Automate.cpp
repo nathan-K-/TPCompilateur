@@ -2,7 +2,7 @@
                                     Automate
                              -------------------
     début                : 17.02
-    copyright            : (C) 2017 par HAMOUMA Naima et KIENLEN Nathan
+    auteurs              : HAMOUMA Naima et KIENLEN Nathan
 *************************************************************************/
 
 #include "Symbole.h"
