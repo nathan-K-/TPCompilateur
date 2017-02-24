@@ -10,6 +10,7 @@
 #include "E3.h"
 #include "../Expr.h"
 
+
 bool E3::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case val_:
