@@ -12,8 +12,10 @@
 #include "E2.h"
 #include "E7.h"
 
-bool E4::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E4::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case val_:
             automate.decalage(new E3);
             break;
@@ -21,18 +23,19 @@ bool E4::transition(Automate &automate, Symbole *s) {
             automate.decalage(new E2);
             break;
         default:
-            std::cout 
-                << "-----------------------------"   
-                << std::endl    
-                << "Attendu :  valeur ou '(', "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl; 
+            std::cout
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  valeur ou '(', "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
     }
     return false;
 }
 
-Etat * E4::nextState(){
+Etat *E4::nextState()
+{
     return new E7;
 }

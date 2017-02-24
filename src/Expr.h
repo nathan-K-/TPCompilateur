@@ -13,7 +13,8 @@
 
 #include "Symbole.h"
 
-class Expr : public Symbole {
+class Expr : public Symbole
+{
 
 public:
 //----------------------------------------------------- Méthodes publiques
@@ -21,12 +22,17 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Expr(int ident) : Symbole(ident) {}
+    Expr(int ident) : Symbole(ident)
+    {}
+
     /**
      * Constructeur
      */
-    Expr() : Symbole(E_) {} 
-    virtual ~Expr() {}
+    Expr() : Symbole(E_)
+    {}
+
+    virtual ~Expr()
+    {}
     /**
      * Destructeur
      */

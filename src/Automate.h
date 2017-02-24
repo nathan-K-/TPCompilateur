@@ -14,31 +14,41 @@
 
 class Etat;
 
-class Automate {
+class Automate
+{
 
 public:
-    void decalage(Etat * e);
+    void decalage(Etat *e);
+
     void reduction(int n);
 
-    void putSymbol(Symbole * s);
-    Symbole * popSymbol();
+    void putSymbol(Symbole *s);
+
+    Symbole *popSymbol();
+
     void popAndDestroySymbol();
 
-    void putState(Etat * e);
-    void popAndDestroyState();
-    Etat * popState();
+    void putState(Etat *e);
 
-    Symbole * next();
-    Symbole * shift();
+    void popAndDestroyState();
+
+    Etat *popState();
+
+    Symbole *next();
+
+    Symbole *shift();
+
     int lecture();
-    
-    std::vector<Symbole *> * symbolstack;
-    std::vector<Etat *> * statestack;
+
+    std::vector<Symbole *> *symbolstack;
+    std::vector<Etat *> *statestack;
     Lexer *lexer;
 
 
     Automate();
+
     Automate(std::string expr);
+
     virtual ~Automate();
 
 };

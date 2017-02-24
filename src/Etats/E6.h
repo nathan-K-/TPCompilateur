@@ -10,22 +10,28 @@
 #include "Etat.h"
 #include "../Automate.h"
 
-class E6 : public Etat {
+class E6 : public Etat
+{
 public:
 
-    virtual bool transition (Automate & automate, Symbole * s);
+    virtual bool transition(Automate &automate, Symbole *s);
 
     //-------------------------------------------- Constructeurs - destructeur
-    E6() {}
+    E6()
+    {}
+
     /**
      * Constructeur
      */
 
-    virtual ~E6() {}
+    virtual ~E6()
+    {}
+
     /**
      * Destructeur
      */
-    operator int() const { return 6; }
+    operator int() const
+    { return 6; }
 };
 
 

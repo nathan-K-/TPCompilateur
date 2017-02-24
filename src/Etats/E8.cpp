@@ -9,20 +9,21 @@
 #include "../Automate.h"
 #include "E8.h"
 #include "../Expr.h"
-#include "../ExprMult.h"
 
 
-bool E8::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E8::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case val_:
         case open_:
-            std::cout 
-                << "-----------------------------"
-                << std::endl    
-                << "Attendu :  '+', '*' ou ')' "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl; 
+            std::cout
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  '+', '*' ou ')' "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
         default:
             automate.reduction(3);

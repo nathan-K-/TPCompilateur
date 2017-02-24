@@ -12,20 +12,28 @@
 #include "../Symbole.h"
 
 
-class Etat {
+class Etat
+{
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual bool transition (Automate & automate, Symbole * s) = 0;
-    virtual Etat * nextState() {return nullptr;};
+    virtual bool transition(Automate &automate, Symbole *s) = 0;
+
+    virtual Etat *nextState()
+    { return nullptr; };
+
     virtual operator int() const = 0;
+
 //-------------------------------------------- Constructeurs - destructeur
-    Etat() {}
+    Etat()
+    {}
+
     /**
      * Constructeur
      */
 
-    virtual ~Etat() {};
+    virtual ~Etat()
+    {};
     /**
      * Destructeur
      */

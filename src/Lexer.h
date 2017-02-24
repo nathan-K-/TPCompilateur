@@ -13,21 +13,23 @@
 #include <string>
 #include "Symbole.h"
 
-class Lexer {
+class Lexer
+{
 public:
-    Lexer(std::string input, int position=0);
-    
+    Lexer(std::string input, int position = 0);
+
     virtual ~Lexer();
-    
+
     // Reads the next symbol without moving the pointer
-    Symbole * next();
-    
+    Symbole *next();
+
     // Reads the next symbol and the pointer shifts
-    Symbole * shift();
+    Symbole *shift();
+
 private:
     std::string input;      // The arithmetic expression to evaluate
     int position;           // The actual position of the pointer 
-                            // on the expression to read
+    // on the expression to read
 
 };
 

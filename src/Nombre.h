@@ -11,18 +11,23 @@
 #include "Symbole.h"
 #include "Expr.h"
 
-class Nombre : public Expr {
+class Nombre : public Expr
+{
 public:
 
 
-    virtual int eval() { return this->val; }
+    virtual int eval()
+    { return this->val; }
 
-    Nombre(int val) : Expr(val_), val(val) {}
+    Nombre(int val) : Expr(val_), val(val)
+    {}
 
-    virtual ~Nombre() {}
+    virtual ~Nombre()
+    {}
+
 private:
-   int val; 
-   
+    int val;
+
 };
 
 

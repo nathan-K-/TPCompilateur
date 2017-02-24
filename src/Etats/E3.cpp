@@ -10,17 +10,19 @@
 #include "E3.h"
 #include "../Expr.h"
 
-bool E3::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E3::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case val_:
         case open_:
-            std::cout 
-                << "-----------------------------" 
-                << std::endl    
-                << "Attendu :  '+', '*' ou ')' "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl; 
+            std::cout
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  '+', '*' ou ')' "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
         default:
             automate.reduction(1);

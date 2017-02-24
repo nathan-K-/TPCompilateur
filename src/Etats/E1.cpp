@@ -12,8 +12,10 @@
 #include "E5.h"
 
 
-bool E1::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E1::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case plus_:
             automate.decalage(new E4);
             break;
@@ -23,13 +25,13 @@ bool E1::transition(Automate &automate, Symbole *s) {
         case end_:
             return true;
         default:
-            std::cout 
-                << "-----------------------------"
-                << std::endl    
-                << "Attendu :  '+', '*' ou fin de l'expression "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl; 
+            std::cout
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  '+', '*' ou fin de l'expression "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
     }
     return false;

@@ -10,38 +10,47 @@
 
 #include <string>
 
-typedef enum {E_, Ep_, plus_, mult_, open_, close_, end_, val_} Token;
+typedef enum
+{
+    E_, Ep_, plus_, mult_, open_, close_, end_, val_
+} Token;
 
 const std::string TokenLabels[] = {"E", "E'", "+", "*", "(", ")", "$", "val"};
 
-class Symbole {
+class Symbole
+{
 
 public:
 
 //----------------------------------------------------- Méthodes publiques
 
 //------------------------------------------------- Surcharge d'opérateurs
-    operator int() const { return ident; }
-    
+    operator int() const
+    { return ident; }
+
 //-------------------------------------------- Constructeurs - destructeur
-    Symbole (int id) : ident (id) {}
+    Symbole(int id) : ident(id)
+    {}
+
     /**
      * Constructeur
      */
 
-    virtual ~Symbole() {}
+    virtual ~Symbole()
+    {}
+
     /**
      * Destructeur
      */
 
-    Symbole(){};
+    Symbole()
+    {};
 
 protected:
 //----------------------------------------------------- Attributs protégées
     int ident;
 
 };
-
 
 
 #endif //TPCOMPILATEUR_SYMBOLE_H

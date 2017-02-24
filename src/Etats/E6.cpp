@@ -13,8 +13,10 @@
 #include "E9.h"
 
 
-bool E6::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E6::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case plus_:
             automate.decalage(new E4);
             break;
@@ -25,13 +27,13 @@ bool E6::transition(Automate &automate, Symbole *s) {
             automate.decalage(new E9);
             break;
         default:
-            std::cout 
-                << "-----------------------------"
-                << std::endl    
-                << "Attendu :  '+', '*' ou ')' "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl; 
+            std::cout
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  '+', '*' ou ')' "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
     }
     return false;

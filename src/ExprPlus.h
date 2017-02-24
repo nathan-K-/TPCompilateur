@@ -11,20 +11,25 @@
 
 #include "Expr.h"
 
-class ExprPlus : public Expr {
+class ExprPlus : public Expr
+{
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual int eval() {return s1->eval() + s2->eval();}
+    virtual int eval()
+    { return s1->eval() + s2->eval(); }
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    ExprPlus(Expr * expr1, Expr * expr2) : s1(expr1), s2(expr2) {}
+    ExprPlus(Expr *expr1, Expr *expr2) : s1(expr1), s2(expr2)
+    {}
+
     /**
      * Constructeur
      */
 
-    virtual ~ExprPlus() {
+    virtual ~ExprPlus()
+    {
         delete (s1);
         delete (s2);
     }
@@ -33,8 +38,8 @@ public:
      */
 
 protected:
-    Expr * s1;
-    Expr * s2;
+    Expr *s1;
+    Expr *s2;
 
 };
 
