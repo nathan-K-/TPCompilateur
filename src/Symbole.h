@@ -19,10 +19,6 @@ class Symbole {
 public:
 
 //----------------------------------------------------- Méthodes publiques
-    void print();
-
-    //for debug ?
-    bool isEnd() { return (ident==end_); }
 
 //------------------------------------------------- Surcharge d'opérateurs
     operator int() const { return ident; }

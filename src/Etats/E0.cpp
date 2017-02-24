@@ -12,27 +12,30 @@
 #include "E2.h"
 #include "E1.h"
 
-bool E0::transition(Automate &automate, Symbole *s) {
-    switch (*s) {
+bool E0::transition(Automate &automate, Symbole *s)
+{
+    switch ( *s )
+    {
         case val_:
             automate.decalage(new E3);
             break;
         case open_:
             automate.decalage(new E2);
             break;
-        default: 
+        default:
             std::cout
-                << "-----------------------------"
-                << std::endl
-                << "Attendu :  valeur ou ')', "
-                << std::endl
-                << "Trouvé : " << TokenLabels[(int) * s] 
-                << std::endl;      
+                    << "-----------------------------"
+                    << std::endl
+                    << "Attendu :  valeur ou ')', "
+                    << std::endl
+                    << "Trouvé : " << TokenLabels[(int) *s]
+                    << std::endl;
             return true;
     }
     return false;
 }
 
-Etat * E0::nextState(){
+Etat *E0::nextState()
+{
     return new E1;
 }

@@ -8,9 +8,7 @@
 #include "../Symbole.h"
 #include "../Automate.h"
 #include "E3.h"
-#include "E5.h"
 #include "../Expr.h"
-#include "../Nombre.h"
 
 bool E3::transition(Automate &automate, Symbole *s) {
     switch (*s) {
